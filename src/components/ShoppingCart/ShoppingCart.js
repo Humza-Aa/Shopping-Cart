@@ -1,9 +1,12 @@
 import React from "react";
+import "./ShoppingCart.css";
 
 const ShoppingCart = () => {
     return(
-        <div>
-            sdfk
+        <div className="shoppingList">
+            <div className="listInfo">
+                
+            </div>
         </div>
     )
 }

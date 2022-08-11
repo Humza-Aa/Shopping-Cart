@@ -1,0 +1,12 @@
+.shoppingList {
+    height: 100%;
+    padding: 30px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.listInfo {
+    background-color: rgb(217, 217, 217);
+    height: 50%;
+    width: 70%;
+}

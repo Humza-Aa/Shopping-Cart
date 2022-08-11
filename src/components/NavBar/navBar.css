@@ -22,3 +22,13 @@ h3 {
     text-decoration: none;
     color: inherit;
 }
+
+.numOfItems {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(93, 241, 191);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
