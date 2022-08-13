@@ -2,6 +2,7 @@ import React from "react";
 import "./HomePage.css";
 
 const HomePage = (itemlist) => {
+  
   return (
     <div className="homePage">
       {itemlist.itemNames.map((item) => {
