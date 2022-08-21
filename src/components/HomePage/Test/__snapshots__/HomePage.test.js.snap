@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Item Display Div renders correctly 1`] = `
+<div
+  className="homePage"
+>
+  <div
+    className="itemCard"
+  >
+    <div
+      className="imgDiv"
+    >
+      <img
+        alt="Item"
+        data-testid="itemImage"
+        src="https://m.media-amazon.com/images/I/61VcLC0G13L._AC_SL1500_.jpg"
+      />
+    </div>
+    <div
+      className="infoDiv"
+    >
+      <div
+        className="nameDiv"
+      >
+        <p
+          data-testid="itemName"
+        >
+          Microsoft Surface Laptop Go 12.4 Multi-Touch, Sand Stone
+        </p>
+      </div>
+      <div
+        className="priceDiv"
+      >
+        <p>
+          $
+          430
+        </p>
+      </div>
+      <div
+        className="addCartBtnDiv"
+      >
+        <button
+          data-testid="button"
+          onClick={[Function]}
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

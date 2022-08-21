@@ -1,0 +1,21 @@
+[debug] [2022-08-17T22:51:59.488Z] ----------------------------------------------------------------------
+[debug] [2022-08-17T22:51:59.492Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-08-17T22:51:59.494Z] CLI Version:   11.7.0
+[debug] [2022-08-17T22:51:59.495Z] Platform:      win32
+[debug] [2022-08-17T22:51:59.495Z] Node Version:  v16.13.0
+[debug] [2022-08-17T22:51:59.496Z] Time:          Wed Aug 17 2022 18:51:59 GMT-0400 (Eastern Daylight Time)
+[debug] [2022-08-17T22:51:59.496Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-17T22:51:59.510Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-17T22:51:59.511Z] > authorizing via signed-in user (humzaaamir61@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\LENOVO\OneDrive\Documents\My_projects\Shopping_Cart\shopping-cart
+

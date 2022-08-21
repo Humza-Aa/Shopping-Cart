@@ -12,17 +12,18 @@ const HomePage = (itemlist) => {
               <img
                 src= {item.imgSrc}
                 alt="Item"
+                data-testid="itemImage"
               />
             </div>
             <div className="infoDiv">
               <div className="nameDiv">
-                <p>{item.name}</p>
+                <p data-testid='itemName'>{item.name}</p>
               </div>
               <div className="priceDiv">
                 <p>${item.price}</p>
               </div>
               <div className="addCartBtnDiv">
-                <button onClick={(e) => {itemlist.addItem(item.key)}}>Add to Cart</button>
+                <button data-testid="button" onClick={(e) => {itemlist.addItem(item.key)}}>Add to Cart</button>
               </div>
             </div>
           </div>

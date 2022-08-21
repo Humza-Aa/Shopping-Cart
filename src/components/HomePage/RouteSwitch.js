@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import NavBar from "../NavBar/NavBar";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useState } from "react";
+import { doc, updateDoc, onSnapshot, collection } from "firebase/firestore";
+import { auth, db } from "../../firebase-config";
+import { onAuthStateChanged } from "firebase/auth";
 
 const RouteSwitch = () => {
   const [shoppingList, setshoppingList] = useState([]);
   const [itemQuantity, setitemQuantity] = useState({
-    0:0,
-    1:0,
-    2:0,
-    3:0,
-    4:0,
-    5:0,
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
   });
 
   const [itemNames] = useState([
@@ -63,17 +66,51 @@ const RouteSwitch = () => {
     },
   ]);
 
+  const [currentUser, setCurrentUser] = useState({});
+  const [dbItemQuantity, setDbItemQuantity] = useState([]);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+  }, []);
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "itemQuantities"), (snapshot) =>
+        setDbItemQuantity(
+          snapshot.docs.map((doc) => ({ itemQ: {...doc.data()}, id: doc.id }))
+        )
+      ),
+    []
+  );
+
   const addItem = (itemIndex) => {
     setshoppingList([...shoppingList, itemIndex]);
     setitemQuantity({
       ...itemQuantity,
-      [itemIndex]: itemQuantity[itemIndex] + 1
+      [itemIndex]: itemQuantity[itemIndex] + 1,
+    });
+  };
+
+  const saveData = async (itemIndex) => {
+    console.log(currentUser.displayName);
+    const docRef = doc(db, "itemQuantities", currentUser.userName);
+    // const payLoad = itemQ;
+    // await setDoc(docRef, payLoad);
+    await updateDoc(docRef, {
+      [itemIndex]: itemQuantity[itemIndex] + 1,
     });
   };
 
   return (
     <BrowserRouter>
-      <NavBar shoppingList={shoppingList} setshoppingList={setshoppingList} />
+      <NavBar
+        shoppingList={shoppingList}
+        setshoppingList={setshoppingList}
+        setCurrentUser={setCurrentUser}
+        currentUser={currentUser}
+      />
       <Routes>
         <Route
           path="/"
@@ -82,7 +119,13 @@ const RouteSwitch = () => {
         <Route
           path="/shoppingcart"
           element={
-            <ShoppingCart itemNames={itemNames} shoppingList={shoppingList} itemQuantity={itemQuantity}/>
+            <ShoppingCart
+              itemNames={itemNames}
+              shoppingList={shoppingList}
+              itemQuantity={itemQuantity}
+              dbItemQuantity={dbItemQuantity}
+              currentUser={currentUser}
+            />
           }
         />
       </Routes>
